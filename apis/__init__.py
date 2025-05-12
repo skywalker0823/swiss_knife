@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, jsonify, request, render_template, redirect
 from pathlib import Path
-
+from dotenv import load_dotenv
+load_dotenv()
 
 def create_app():
     app = Flask(__name__, static_url_path='/',
@@ -46,10 +47,7 @@ def create_app():
 
         short_id = generate_short_id()
         r.set(short_id, long_url)
-        domain = os.getenv('DOMAIN_NAME', 'localhost:5000')
+        domain = os.getenv('DOMAIN', 'localhost:5000')
         return jsonify({'short_url': f'http://{domain}/{short_id}'})
 
-
-
     return app
-    
