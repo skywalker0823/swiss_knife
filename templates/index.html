@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:url - 未來科技縮網址</title>
+    <link rel="stylesheet" href="/css/reurl.css">
+</head>
+<body>
+    <div class="container">
+        <div class="url-box">
+            <h1>Re:URL</h1>
+            <div class="input-group">
+                <input type="url" id="longUrl" placeholder="請輸入要縮短的網址...">
+                <button id="shortenBtn">縮短網址</button>
+            </div>
+            <div class="status-indicator">
+                <span>資料庫狀態：</span>
+                <div class="status-light {{ 'active' if redis_status == 'Redis is running' else 'inactive' }}"></div>
+            </div>
+            <div id="result" class="result-box"></div>
+        </div>
+    </div>
+    <script src="/js/reurl.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #0a0a0a;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.url-box {
+    background: rgba(20, 20, 30, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 195, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    text-align: center;
+    color: #00c3ff;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    box-shadow: 0 0 15px rgba(0, 195, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #00c3ff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #0099ff;
+    box-shadow: 0 0 20px rgba(0, 195, 255, 0.5);
+}
+
+.result-box {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.result-box.success {
+    border: 1px solid #00c3ff;
+    box-shadow: 0 0 10px rgba(0, 195, 255, 0.2);
+}
+
+.result-box.error {
+    border: 1px solid #ff3366;
+    box-shadow: 0 0 10px rgba(255, 51, 102, 0.2);
+}
+
+.result-box a {
+    color: #00c3ff;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+    word-break: break-all;
+}
+
+.result-box a:hover {
+    text-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.status-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.status-light.active {
+    background-color: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.status-light.inactive {
+    background-color: #ff0000;
+    box-shadow: 0 0 10px #ff0000;
+}
