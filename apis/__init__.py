@@ -36,7 +36,10 @@ def create_app():
     def get_re_url(short_id):
         long_url = r.get(short_id)
         if long_url:
-            return redirect(long_url.decode('utf-8'))
+            url = long_url.decode('utf-8')
+            if not url.startswith(('http://', 'https://')):
+                url = f'https://{url}'
+            return redirect(url)
         return jsonify({'error': '網址不存在'}), 404
 
     @app.route('/', methods=['POST'])
