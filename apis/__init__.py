@@ -45,6 +45,13 @@ def create_app():
         if not long_url:
             return jsonify({'error': '無 URL'})
 
+        # 檢查是否已有此長網址
+        for key in r.keys('*'):
+            if r.get(key) and r.get(key).decode('utf-8') == long_url:
+                domain = os.getenv('DOMAIN', 'localhost:5000')
+                return jsonify({'short_url': f'http://{domain}/{key.decode("utf-8")}'})
+
+        # 如果沒有重複的網址，建立新的短網址
         short_id = generate_short_id()
         r.set(short_id, long_url)
         domain = os.getenv('DOMAIN', 'localhost:5000')
