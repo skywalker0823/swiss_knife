@@ -120,6 +120,22 @@ button:hover {
 .status-light.active {
     background-color: #00ff00;
     box-shadow: 0 0 10px #00ff00;
+    animation: breathe-green 5s infinite ease-in-out;
+}
+
+@keyframes breathe-green {
+    0% {
+        box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+        background-color: #00ff00;
+    }
+    50% {
+        box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+        background-color: #66ff66;
+    }
+    100% {
+        box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+        background-color: #00ff00;
+    }
 }
 
 .status-light.inactive {

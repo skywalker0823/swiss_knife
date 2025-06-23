@@ -8,6 +8,10 @@ def create_app():
                 static_folder=Path(__file__).parent.parent / 'static',
                 template_folder=Path(__file__).parent.parent / 'templates')
     
+    # 設定 JSON 編碼
+    app.config['JSON_AS_ASCII'] = False
+    app.config['JSONIFY_MIMETYPE'] = "application/json;charset=utf-8"
+    
     import redis
     import string, random, os
 

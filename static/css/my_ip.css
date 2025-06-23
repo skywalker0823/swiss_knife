@@ -1,0 +1,96 @@
+.ip-box {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+}
+
+.ip-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    border-color: #444;
+}
+
+.ip-box h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.ip-info {
+    padding: 15px;
+    color: #fff;
+}
+
+.loading {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+}
+
+.info-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    flex: 1;
+}
+
+.ip-details p {
+    margin: 12px 0;
+    padding: 8px;
+    border-bottom: 1px solid #333;
+    transition: all 0.3s ease;
+    color: #ccc;
+}
+
+.ip-details p:hover {
+    background-color: #252525;
+    border-color: #444;
+}
+
+.ip-details p span:first-child {
+    font-weight: bold;
+    color: #444;
+}
+
+.ip-details p span:last-child {
+    color: #666;
+}
+
+.ip-details strong {
+    color: #fff;
+    margin-right: 8px;
+}
+
+.connection-info {
+    background-color: #252525;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+    border: 1px solid #333;
+}
+
+.connection-info p {
+    border: none;
+    margin: 0;
+    color: #ccc;
+}
+
+.connection-info:hover {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+#userIp, #country, #countryCode, #city, #region, #timezone, #currency, #isp, #org, #connectionType {
+    color: #00ff9d;
+}

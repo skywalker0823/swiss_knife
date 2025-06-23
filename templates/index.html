@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Re:url-縮網址</title>
     <link rel="stylesheet" href="/css/reurl.css">
+    <link rel="stylesheet" href="/css/my_ip.css">
 </head>
 <body>
     <div class="container">
@@ -20,7 +21,35 @@
             </div>
             <div id="result" class="result-box"></div>
         </div>
+        <div class="ip-box">
+            <h2>IP 資訊</h2>
+            <div class="ip-info">
+                <div class="loading">載入中...</div>
+                <div class="ip-details" style="display:none;">
+                    <div class="info-group">
+                        <div class="info-item">
+                            <p><strong>IP:</strong> <span id="userIp"></span></p>
+                            <p><strong>國家:</strong> <span id="country"></span> (<span id="countryCode"></span>)</p>
+                            <p><strong>城市:</strong> <span id="city"></span></p>
+                            <p><strong>地區:</strong> <span id="region"></span></p>
+                        </div>
+                        <div class="info-item">
+                            <p><strong>時區:</strong> <span id="timezone"></span></p>
+                            <p><strong>幣別:</strong> <span id="currency"></span></p>
+                            <p><strong>ISP:</strong> <span id="isp"></span></p>
+                            <p><strong>組織:</strong> <span id="org"></span></p>
+                        </div>
+                    </div>
+                    <div class="connection-info">
+                        <p><strong>連線類型:</strong> 
+                            <span id="connectionType"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="/js/reurl.js"></script>
+    <script src="/js/my_ip.js"></script>
 </body>
 </html>
