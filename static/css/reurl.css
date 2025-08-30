@@ -14,6 +14,9 @@ body {
     width: 100%;
     max-width: 600px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .url-box {
@@ -22,6 +25,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 195, 255, 0.2);
     backdrop-filter: blur(10px);
+    width: 100%;
 }
 
 h1 {

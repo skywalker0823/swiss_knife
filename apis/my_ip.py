@@ -11,6 +11,29 @@ def get_my_ip():
     else:
         user_ip = request.remote_addr
     
+    # if user ip starts with 192.168. or 10. or 172.16. to 172.31., return fake data
+    if user_ip.startswith('192.168.') or user_ip.startswith('10.') or \
+       (user_ip.startswith('172.') and 16 <= int(user_ip.split('.')[1]) <= 31):
+        print("Private IP detected, returning fake data.")
+        return jsonify({
+            'ip': user_ip,
+            'continent': 'Private Network',
+            'country': 'Private Network',
+            'countryCode': 'PN',
+            'region': 'Private Network',
+            'city': 'Private Network',
+            'timezone': 'Private Network',
+            'currency': 'N/A',
+            'isp': 'N/A',
+            'org': 'N/A',
+            'lat': 'N/A',
+            'lon': 'N/A',
+            'mobile': False,
+            'proxy': False,
+            'hosting': False,
+            'private': True
+        }), 200, {'Content-Type': 'application/json; charset=utf-8'}
+
     try:
         # 使用 ip-api.com 獲取位置資訊
         response = requests.get(f'http://ip-api.com/json/{user_ip}')
