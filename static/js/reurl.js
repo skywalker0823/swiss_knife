@@ -10,11 +10,46 @@ window.showResult = function(message, isError = false) {
 document.addEventListener('DOMContentLoaded', () => {
     const shortenBtn = document.getElementById('shortenBtn');
     const longUrlInput = document.getElementById('longUrl');
-    resultBox = document.getElementById('result');  // 指派給全域變數
+    resultBox = document.getElementById('result');
+    let isValidUrl = false; // 新增 URL 驗證狀態追蹤
+
+    // 修改為更簡單的 URL 驗證
+    function validateUrl(url) {
+        // 移除前後空白
+        url = url.trim();
+        // 允許的格式：
+        // 1. http(s)://domain.com
+        // 2. domain.com
+        // 3. sub.domain.com
+        const urlPattern = /^(https?:\/\/)?[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
+        return urlPattern.test(url);
+    }
+
+    longUrlInput.addEventListener('input', () => {
+        let url = longUrlInput.value.trim();
+        if (url === '') {
+            longUrlInput.classList.remove('valid', 'invalid');
+            shortenBtn.disabled = true; // 空白時禁用按鈕
+            isValidUrl = false;
+            return;
+        }
+        
+        if (validateUrl(url)) {
+            longUrlInput.classList.add('valid');
+            longUrlInput.classList.remove('invalid');
+            shortenBtn.disabled = false; // 有效 URL 時啟用按鈕
+            isValidUrl = true;
+        } else {
+            longUrlInput.classList.add('invalid');
+            longUrlInput.classList.remove('valid');
+            shortenBtn.disabled = true; // 無效 URL 時禁用按鈕
+            isValidUrl = false;
+        }
+    });
 
     shortenBtn.addEventListener('click', async () => {
         let url = longUrlInput.value.trim();
-        if (!url) {
+        if (!url || !isValidUrl) { // 加入 isValidUrl 的檢查
             showResult('請輸入有效網址', true);
             return;
         }
@@ -46,6 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
             showResult('系統錯誤，請稍後再試', true);
         }
     });
+
+    // 初始化按鈕狀態
+    shortenBtn.disabled = true;
 });
 
 window.copyToClipboard = async function(text) {

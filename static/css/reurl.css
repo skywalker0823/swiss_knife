@@ -17,6 +17,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;  /* 添加相對定位 */
+    z-index: 1;         /* 確保在背景之上 */
 }
 
 .url-box {
@@ -40,6 +42,9 @@ h1 {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    position: relative;  /* 添加相對定位 */
+    z-index: 2;         /* 確保在其他元素之上 */
+    width: 100%;        /* 確保寬度正確 */
 }
 
 input {
@@ -52,6 +57,19 @@ input {
     font-size: 16px;
     outline: none;
     transition: all 0.3s ease;
+    position: relative;  /* 添加相對定位 */
+    z-index: 3;         /* 確保在最上層 */
+}
+
+/* 新增 URL 驗證的視覺反饋 */
+input.valid {
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+input.invalid {
+    border: 2px solid #ff3366;
+    box-shadow: 0 0 10px rgba(255, 51, 102, 0.3);
 }
 
 input:focus {
@@ -73,6 +91,17 @@ button {
 button:hover {
     background: #0099ff;
     box-shadow: 0 0 20px rgba(0, 195, 255, 0.5);
+}
+
+button:disabled {
+    background: #666;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+button:disabled:hover {
+    background: #666;
+    box-shadow: none;
 }
 
 .result-box {
